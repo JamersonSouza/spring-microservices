@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: cloud-gateway
+    #habilitar a localiza��o dos microservi�os
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://192.168.0.106:8082/realms/microservicos-realm
+
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://neo:zero81@${EUREKA_SERVER}:8761/eureka
